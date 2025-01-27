@@ -1,13 +1,17 @@
-👋  Hi there! I'm Nanshi Yadav 
+# Student Management System
 
- Welcome to my GitHub profile!  
+This project is a student management system with advanced features such as :
+- Database integration : MongoDB,
+- Machine learning  : Regression Model
+- Data visualization  : Chart.js
 
-- 🔍 Interests: I’m passionate about exploring technical programs and solving real-world problems using Mathematics and Computing.  
-- 🌱 Currently Learning: Data Structures, Algorithms and Mathematics.  
-- 🤝 Looking to Collaborate:Open to collaborating on projects related to Mathematics,Computing and Software Development.  
-- 📫 Contact Me: 
-  - Email: nanshiyadav1212@gmail.com   
-  - LinkedIn: https://www.linkedin.com/in/nanshi-yadav-7ab347315/ 
+## Features
+- Add, delete, update, and find students.
+- Predict CGPA based on attendance using machine learning.
+- Visualize student data using Chart.js.
 
- 🌟 Let's build something amazing together!  
-
+## Setup
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
