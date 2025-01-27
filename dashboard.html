@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Data Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Student Data Visualization</h1>
+
+    <!-- Bar Chart for CGPA -->
+    <div style="width: 50%; margin: auto;">
+        <h2>CGPA Distribution</h2>
+        <canvas id="cgpaChart"></canvas>
+    </div>
+
+    <!-- Line Chart for Attendance -->
+    <div style="width: 50%; margin: auto;">
+        <h2>Attendance Trend</h2>
+        <canvas id="attendanceChart"></canvas>
+    </div>
+
+    <!-- Pie Chart for Course Enrollment -->
+    <div style="width: 50%; margin: auto;">
+        <h2>Course Enrollment</h2>
+        <canvas id="courseChart"></canvas>
+    </div>
+
+    <script>
+        // Fetch data from student_data.json
+        fetch('student_data.json')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(student => student.fname + ' ' + student.lname);
+
+                // Bar Chart for CGPA
+                const cgpaCtx = document.getElementById('cgpaChart').getContext('2d');
+                new Chart(cgpaCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'CGPA',
+                            data: data.map(student => student.cgpa),
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // Line Chart for Attendance
+                const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+                new Chart(attendanceCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Attendance',
+                            data: data.map(student => student.attendance),
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 2,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // Pie Chart for Course Enrollment
+                const courseCtx = document.getElementById('courseChart').getContext('2d');
+                const courseCounts = {};
+                data.forEach(student => {
+                    student.course_id.forEach(course => {
+                        courseCounts[course] = (courseCounts[course] || 0) + 1;
+                    });
+                });
+                new Chart(courseCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: Object.keys(courseCounts),
+                        datasets: [{
+                            label: 'Course Enrollment',
+                            data: Object.values(courseCounts),
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+_pycache_/
+venv/
+*.pyc
+*.db
+*.log
+student_data.json
