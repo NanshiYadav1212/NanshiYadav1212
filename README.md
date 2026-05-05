@@ -17,7 +17,7 @@ I love exploring the ever-evolving world of technology, building seamless user e
 ## 📫 Connect With Me  
 - **Email:** [nanshiyadav1212@gmail.com](mailto:nanshiyadav1212@gmail.com)  
 - **LinkedIn:** [https://www.linkedin.com/in/nanshiyadav/](https://www.linkedin.com/in/nanshiyadav/)  
-- **GitHub:** [https://github.com/NanshiYadav1212/NanshiYadav1212](https://github.com/NanshiYadav1212/NanshiYadav1212)  
+- **GitHub:** [https://github.com/NanshiYadav1212](https://github.com/NanshiYadav1212)  
 
 
 
